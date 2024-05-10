@@ -11,28 +11,52 @@ class personagem:
         racapersonagem = ["tielfing","arcanjo","elfo","anão","orc","duende"]
         print('1.Tielfing, 2.arcanjo, 3.elfos, 4.anão, 5.orc, 6.duende')
         racaAtributoCarisma = 0
-
+        racaAtributoForca = 0
+        racaAtributoSabedoria = 0
+        racaAtributoDestreza = 0
+        racaAtributoCon = 0
+        racaAtributoInteligencia = 0
         numeroraca = int(input(' selecione o número correspondente a raça desejada disponibilizadas acima'))
         
         if numeroraca == 1:
             print('você escolheu a raça tielfing')
             nomeraca = "tielfing"
-            racaAtributoCarisma =+1
+            racaAtributoCarisma +=2
+            racaAtributoForca +=1
+            racaAtributoCon +=1
         elif numeroraca == 2:
             print('você escolheu a raça arcanjo')
             nomeraca = "arcanjo"
+            racaAtributoDestreza +=1
+            racaAtributoCon +=1
+            racaAtributoSabedoria +=1
+            racaAtributoCarisma +=1
         elif numeroraca == 3:
             print('você escolheu a raça elfo')
             nomeraca = "elfo"
+            racaAtributoDestreza +=2
+            racaAtributoCon +=1
+            racaAtributoInteligencia +=1
         elif numeroraca == 4:
             print('você escolheu a raça anão')
             nomeraca = "anão"
+            racaAtributoForca +=2
+            racaAtributoCon +=1
+            racaAtributoInteligencia +=1
+            racaAtributoSabedoria +=1
         elif numeroraca == 5:
             print(f'você escolheu a raça orc')
             nomeraca = "orc"
+            racaAtributoForca +=3
+            racaAtributoDestreza =-1
+            racaAtributoCon +=2
+            racaAtributoInteligencia =-1
         elif numeroraca == 6:
             print('você escolheu a raça duende')
             nomeraca = "duende"
+            racaAtributoDestreza +=1
+            racaAtributoCon +=1
+            racaAtributoInteligencia +=2
         else:
             print("Digite um número correto referente a sua raca")
         
@@ -75,7 +99,8 @@ class personagem:
         
         if perguntaAtributoForca < 6: 
             atributoforca = perguntaAtributoForca 
-            pontos -= perguntaAtributoForca 
+            pontos -= perguntaAtributoForca
+            atributoforca += racaAtributoForca
             print(f"Voce tem {atributoforca} de forca")
 
 
@@ -87,6 +112,7 @@ class personagem:
         if perguntaAtributodestreza < 6: 
             Atributodestreza = perguntaAtributodestreza 
             pontos -= perguntaAtributodestreza 
+            Atributodestreza += racaAtributoDestreza
             print(f"Voce tem {Atributodestreza} de destreza")
         perguntaAtributoCon = int(input('Quantos pontos voce quer colocar no atributo Vida? (Lembrando que o máximo é 5)'))
         
@@ -96,6 +122,7 @@ class personagem:
         if perguntaAtributoCon < 6: 
             atributoCon = perguntaAtributoCon 
             pontos -= perguntaAtributoCon 
+            atributoCon += racaAtributoCon
             print(f"Voce tem {atributoCon} de vida")
 
         perguntaAtributoInteligencia = int(input('Quantos pontos voce quer colocar no atributo Inteligencia? (Lembrando que o máximo é 5)'))
@@ -106,6 +133,7 @@ class personagem:
         if perguntaAtributoInteligencia < 6: 
             atributointeligencia = perguntaAtributoInteligencia 
             pontos -= perguntaAtributoInteligencia 
+            atributointeligencia += racaAtributoInteligencia
             print(f"Voce tem {atributointeligencia} de inteligencia")
 
         perguntaAtributoSabedoria = int(input('Quantos pontos voce quer colocar no atributo Sabedoria? (Lembrando que o máximo é 5)'))
@@ -113,9 +141,10 @@ class personagem:
             print("Por favor coloque um número menor que 5")            
             perguntaAtributoSabedoria = int(input('Quantos pontos voce quer colocar no atributo Sabedoria? (Lembrando que o máximo é 5)'))
         
-        if perguntaAtributoInteligencia < 6: 
+        if perguntaAtributoSabedoria < 6: 
             atributoSabedoria = perguntaAtributoSabedoria 
             pontos -= perguntaAtributoSabedoria 
+            atributoSabedoria += racaAtributoSabedoria
             print(f"Voce tem {atributoSabedoria} de Sabedoria")
 
         perguntaAtributoCarisma = int(input('Quantos pontos voce quer colocar no atributo Carisma? (Lembrando que o máximo é 5)'))
@@ -126,10 +155,10 @@ class personagem:
         if perguntaAtributoCarisma < 6: 
             AtributoCarisma = perguntaAtributoCarisma 
             pontos -= AtributoCarisma 
-            AtributoCarisma + racaAtributoCarisma
+            AtributoCarisma += racaAtributoCarisma
             print(f"Voce tem {AtributoCarisma} de carisma")     
         
-        #thielfing=[atributoforca =+1, atributodestrezaestreza=+0, atributoCon = +1, atributoInteligencia = "normal", Sabedoria = "Normal", Carisma= +2]
+        #thielfing=[atributoforca +=1, atributodestrezaestreza+=0, atributoCon = +1, atributoInteligencia = "normal", Sabedoria = "Normal", Carisma= +2]
         #Arcanjo: Força: Normal, Destreza: +1, Vida: +1, Inteligencia: Normal, Sabeddoria: +1, Carisma: +1
         #Elfo: Força: Normal, Detreza: +2, Vida: +1, Inteligencia: +1, Sabedoria: Normal, Carisma: Normal
         #Anão: Força: +2, Detreza: Normal, Vida: +1, Inteligencia: +1, Sabedoria: +1, Carisma: Normal
@@ -140,8 +169,16 @@ class personagem:
         
         
         
-        #if pontos == 0:
-        print(f"{nomepersonagem}, {classepersonagem},{racapersonagem},{atributoforca},{Atributodestreza},{atributoCon},{atributointeligencia},{atributoSabedoria},{AtributoCarisma}")
+        if pontos == 0:
+            print(f"{nomepersonagem}, {nomeraca},{nomeclasse},Força: {atributoforca}, Destreza: {Atributodestreza}, Vida: {atributoCon}, Inteligencia: {atributointeligencia}, Sabedoria: {atributoSabedoria}, Carisma: {AtributoCarisma}, você não tem mais pontos, Pronto para jogar?")
+            simnaojogar = input('Sim ou Não')
+            if simnaojogar == 'Sim':
+                    #desenrola-le fala e vai pro quebra pau de treino
+            elif simnaojogar == 'Não':
+                    print('Você chega até aqui e diz não vai volta desde o inicio logo tá bom vai vai')
+            else:
+                    print('Por favor escolha uma opção correta')
+                    input('Sim/Não')
 
 
 
