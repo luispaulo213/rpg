@@ -173,7 +173,9 @@ class personagem:
             print(f"{nomepersonagem}, {nomeraca},{nomeclasse},Força: {atributoforca}, Destreza: {Atributodestreza}, Vida: {atributoCon}, Inteligencia: {atributointeligencia}, Sabedoria: {atributoSabedoria}, Carisma: {AtributoCarisma}, você não tem mais pontos, Pronto para jogar?")
             simnaojogar = input('Sim ou Não')
             if simnaojogar == 'Sim':
-                    #desenrola-le fala e vai pro quebra pau de treino
+                 #desenrola-le fala e vai pro quebra pau de treino
+                print('teste')
+                jogoComeça()            
             elif simnaojogar == 'Não':
                     print('Você chega até aqui e diz não vai volta desde o inicio logo tá bom vai vai')
             else:
@@ -182,7 +184,21 @@ class personagem:
 
 
 
+def jogoComeça():
+    print("Jogo começou")
+    nomerival = input('Escolha o nome do seu rival')
+    batalha(nomerival)
 
+def batalha(rival):
+    print(f'A batalha começou o seu inimigo é {rival}')
+    print('O que irá fazer agora: fugir, batalhar, itens')
+    acaojogador = input('...')
+    if acaojogador in ('Batalhar','batalhar','BATALHAR'):
+        print('qual ataque irá usar')
+        acaoataquejogador = input('bruto, distancia, ou cura')
+        if acaoataquejogador in ('bruto','Bruto','BRUTO'):
+            print('executar animação e causar dano no inimigo')
+        
 
 
 print(personagem.criacaopersonagem())
