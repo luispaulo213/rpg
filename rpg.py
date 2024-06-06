@@ -175,7 +175,7 @@ class personagem:
             if simnaojogar == 'Sim':
                  #desenrola-le fala e vai pro quebra pau de treino
                 print('teste')
-                jogoComeça()            
+                jogoComeça(nomeraca)            
             elif simnaojogar == 'Não':
                     print('Você chega até aqui e diz não vai volta desde o inicio logo tá bom vai vai')
             else:
@@ -184,21 +184,29 @@ class personagem:
 
 
 
-def jogoComeça():
+def jogoComeça(nomeraca):
     print("Jogo começou")
     nomerival = input('Escolha o nome do seu rival')
-    batalha(nomerival)
+    batalha(nomerival, nomeraca)
 
-def batalha(rival):
+def batalha(rival, nomeraca):
     print(f'A batalha começou o seu inimigo é {rival}')
     print('O que irá fazer agora: fugir, batalhar, itens')
     acaojogador = input('...')
     if acaojogador in ('Batalhar','batalhar','BATALHAR'):
-        print('qual ataque irá usar')
-        acaoataquejogador = input('bruto, distancia, ou cura')
-        if acaoataquejogador in ('bruto','Bruto','BRUTO'):
-            print('executar animação e causar dano no inimigo')
-        
+        print('1. ataque corpo a corpo')
+        print('2. ataque a distancia')
+        print('3. Recuperar vida')
+        print('4. Ataque especial')
+        acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
+        if acaoataquejogador in ('1','2','3','4'):
+            if acaoataquejogador in ('1','um','UM','Um','uM'):
+                if nomeraca in ('tielfing'):
+                    print('') 
+        else:
+            print('')
+         
+
 
 
 print(personagem.criacaopersonagem())
