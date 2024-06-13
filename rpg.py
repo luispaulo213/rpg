@@ -191,6 +191,9 @@ def jogoComeça(nomeraca):
 
 def batalha(rival, nomeraca):
     print(f'A batalha começou o seu inimigo é {rival}')
+    danoinimigo = ""
+    vidainimigo = ""
+    defesainimigo = ""
     print('O que irá fazer agora: fugir, batalhar, itens')
     acaojogador = input('...')
     if acaojogador in ('Batalhar','batalhar','BATALHAR'):
@@ -201,12 +204,11 @@ def batalha(rival, nomeraca):
         acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
         if acaoataquejogador in ('1','2','3','4'):
             if acaoataquejogador in ('1','um','UM','Um','uM'):
-                if nomeraca in ('tielfing'):
-                    print('') 
+                nomeclasse = "bruto"
+                if nomeraca in ('tielfing') & nomeclasse in ("bruto"):
+                    print('você causou x de dano ao seu inimigo')
+                    #inimigo vaifazer as maracutaia e baguio de ataque e causa x de dano
+
         else:
-            print('')
+            print('ASDAS')
          
-
-
-
-print(personagem.criacaopersonagem())
