@@ -175,7 +175,7 @@ class personagem:
             if simnaojogar == 'Sim':
                  #desenrola-le fala e vai pro quebra pau de treino
                 print('teste')
-                jogoComeça(nomeraca)            
+                jogoComeça(nomeraca, nomeclasse)            
             elif simnaojogar == 'Não':
                     print('Você chega até aqui e diz não vai volta desde o inicio logo tá bom vai vai')
             else:
@@ -184,12 +184,12 @@ class personagem:
 
 
 
-def jogoComeça(nomeraca):
+def jogoComeça(nomeraca, nomeclasse):
     print("Jogo começou")
     nomerival = input('Escolha o nome do seu rival')
-    batalha(nomerival, nomeraca)
+    batalha(nomerival, nomeraca, nomeclasse)
 
-def batalha(rival, nomeraca):
+def batalha(rival, nomeraca, nomeclasse):
     print(f'A batalha começou o seu inimigo é {rival}')
     danoinimigo = ""
     vidainimigo = ""
@@ -203,12 +203,18 @@ def batalha(rival, nomeraca):
         print('4. Ataque especial')
         acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
         if acaoataquejogador in ('1','2','3','4'):
+            multiplicadordanobruto = 0.2
+            multiplicadordefesacorpoacorpobruto = 0.1
+            multiplicadordefesaadistanciabruto = 0
+            multiplicadorprecisaobruto = -0.1
             if acaoataquejogador in ('1','um','UM','Um','uM'):
-                nomeclasse = "bruto"
-                if nomeraca in ('tielfing') & nomeclasse in ("bruto"):
-                    print('você causou x de dano ao seu inimigo')
+                
+                if nomeclasse == "bruto" & nomeraca == "thielfing":
+                    danobasecorpoacorpothielfing = 15
+                    multiplicadordano = 1 + multiplicadordanobruto
+                    danofinalcorpoacorpothielfing = danobasecorpoacorpothielfing * multiplicadordano
                     #inimigo vaifazer as maracutaia e baguio de ataque e causa x de dano
 
         else:
             print('ASDAS')
-         
+       
