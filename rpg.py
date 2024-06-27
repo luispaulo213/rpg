@@ -1,3 +1,4 @@
+import random
 class personagem:
     def __init__(self, nome, raca, classe) -> None:
         self.nome = nome 
@@ -6,7 +7,7 @@ class personagem:
 
      
     def criacaopersonagem():
-       
+        level = 1
         nomepersonagem = input('por favor digite o nome do seu personagem ')
         racapersonagem = ["tielfing","arcanjo","elfo","anão","orc","duende"]
         print('1.Tielfing, 2.arcanjo, 3.elfos, 4.anão, 5.orc, 6.duende')
@@ -175,7 +176,7 @@ class personagem:
             if simnaojogar == 'Sim':
                  #desenrola-le fala e vai pro quebra pau de treino
                 print('teste')
-                jogoComeça(nomeraca, nomeclasse)            
+                jogoComeça(nomeraca, level)            
             elif simnaojogar == 'Não':
                     print('Você chega até aqui e diz não vai volta desde o inicio logo tá bom vai vai')
             else:
@@ -184,18 +185,25 @@ class personagem:
 
 
 
-def jogoComeça(nomeraca, nomeclasse):
+def jogoComeça(nomeraca, level):
     print("Jogo começou")
     nomerival = input('Escolha o nome do seu rival')
-    batalha(nomerival, nomeraca, nomeclasse)
+    batalha(nomerival, nomeraca, level)
+def inimigoaleatório():
+    nomes = ["Alaric", "Beatrix", "Cedric", "Dante", "Eleanor", "Faramir", "Giselle", "Harold", "Isolde", "Jocelyn", "Leofric", "Matilda", "Niall", "Odette", "Percival", "Quillian", "Rhiannon", "Sigmund", "Thaddeus", "Ulf", "Violetta", "Wulfric", "Yseult", "Agravain", "Brynhild", "Catriona", "Dorian", "Eadric", "Fenella", "Godfrey", "Hildegarde", "Ingmar", "Jareth", "Kenelm", "Lancelot", "Morgana", "Osric", "Rowena", "Theobald", "Wilfred"]
+    nomeinimigo = random.choice(nomes)
 
-def batalha(rival, nomeraca, nomeclasse):
-    print(f'A batalha começou o seu inimigo é {rival}')
+def batalha(rival, level, nomeinimigo):
+    if level == 1:
+        nomeinimigo = rival
+    print(f'A batalha começou o seu inimigo é {nomeinimigo}')
     danoinimigo = ""
     vidainimigo = ""
     defesainimigo = ""
     print('O que irá fazer agora: fugir, batalhar, itens')
     acaojogador = input('...')
+
+def atacar(acaojogador, nomeraca, nomeclasse, nomeinimigo):     
     if acaojogador in ('Batalhar','batalhar','BATALHAR'):
         print('1. ataque corpo a corpo')
         print('2. ataque a distancia')
@@ -203,18 +211,12 @@ def batalha(rival, nomeraca, nomeclasse):
         print('4. Ataque especial')
         acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
         if acaoataquejogador in ('1','2','3','4'):
-            multiplicadordanobruto = 0.2
-            multiplicadordefesacorpoacorpobruto = 0.1
-            multiplicadordefesaadistanciabruto = 0
-            multiplicadorprecisaobruto = -0.1
             if acaoataquejogador in ('1','um','UM','Um','uM'):
-                
-                if nomeclasse == "bruto" & nomeraca == "thielfing":
-                    danobasecorpoacorpothielfing = 15
-                    multiplicadordano = 1 + multiplicadordanobruto
-                    danofinalcorpoacorpothielfing = danobasecorpoacorpothielfing * multiplicadordano
+                nomeclasse = "bruto"
+                if nomeraca in ('tielfing') & nomeclasse in ("bruto"):
+                    print(f'você causou x de dano a(o) {nomeinimigo}')
                     #inimigo vaifazer as maracutaia e baguio de ataque e causa x de dano
 
         else:
             print('ASDAS')
-       
+         
