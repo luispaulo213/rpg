@@ -1,4 +1,3 @@
-import random
 class personagem:
     def __init__(self, nome, raca, classe) -> None:
         self.nome = nome 
@@ -6,6 +5,7 @@ class personagem:
         self.classe = classe
 
      
+    
     def criacaopersonagem():
         level = 1
         nomepersonagem = input('por favor digite o nome do seu personagem ')
@@ -183,15 +183,20 @@ class personagem:
                     print('Por favor escolha uma opção correta')
                     input('Sim/Não')
 
-
-
 def jogoComeça(nomeraca, level):
     print("Jogo começou")
     nomerival = input('Escolha o nome do seu rival')
     batalha(nomerival, nomeraca, level)
-def inimigoaleatório():
+def inimigoaleatório(areapersonagem):
     nomes = ["Alaric", "Beatrix", "Cedric", "Dante", "Eleanor", "Faramir", "Giselle", "Harold", "Isolde", "Jocelyn", "Leofric", "Matilda", "Niall", "Odette", "Percival", "Quillian", "Rhiannon", "Sigmund", "Thaddeus", "Ulf", "Violetta", "Wulfric", "Yseult", "Agravain", "Brynhild", "Catriona", "Dorian", "Eadric", "Fenella", "Godfrey", "Hildegarde", "Ingmar", "Jareth", "Kenelm", "Lancelot", "Morgana", "Osric", "Rowena", "Theobald", "Wilfred"]
     nomeinimigo = random.choice(nomes)
+    lvlinimigo = 0
+    danoinimigobase = 10
+    vidainimigobase = 100
+    definimigobase =0.1
+    multiplicadoratributosinimigo = lvl
+    if areapersonagem in ("area51"):
+        lvlinimigo = random.randint(2,15)
 
 def batalha(rival, level, nomeinimigo):
     if level == 1:
@@ -204,19 +209,18 @@ def batalha(rival, level, nomeinimigo):
     acaojogador = input('...')
 
 def atacar(acaojogador, nomeraca, nomeclasse, nomeinimigo):     
-    if acaojogador in ('Batalhar','batalhar','BATALHAR'):
-        print('1. ataque corpo a corpo')
-        print('2. ataque a distancia')
-        print('3. Recuperar vida')
-        print('4. Ataque especial')
-        acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
-        if acaoataquejogador in ('1','2','3','4'):
-            if acaoataquejogador in ('1','um','UM','Um','uM'):
-                nomeclasse = "bruto"
-                if nomeraca in ('tielfing') & nomeclasse in ("bruto"):
-                    print(f'você causou x de dano a(o) {nomeinimigo}')
-                    #inimigo vaifazer as maracutaia e baguio de ataque e causa x de dano
+    print('1. ataque corpo a corpo')
+    print('2. ataque a distancia')
+    print('3. Recuperar vida')
+    print('4. Ataque especial')
+    
+    acaoataquejogador = input('Agora escolha qual ataque você irá usar(selecoine com os números)...')
+    if acaoataquejogador in ('1','2','3','4'):
+        if acaoataquejogador in ('1','um','UM','Um','uM'):
+            nomeclasse = "bruto"
+            if nomeraca in ('tielfing') & nomeclasse in ("bruto"):
+                print(f'você causou x de dano a(o) {nomeinimigo}')
+                #inimigo vaifazer as maracutaia e baguio de ataque e causa x de dano
 
-        else:
-            print('ASDAS')
+
          
