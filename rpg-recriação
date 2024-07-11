@@ -1,0 +1,17 @@
+import random
+import time
+class personagem:
+    def criacaodepersonagem():
+        print('Olá eu sou ANA, sua assistente de vida antes de relembrar os acontecimentos seria bom que você me ajudasse com algumas outras coisas')
+        time.sleep(3)
+        nomeusuario = input('O seu nome ')
+        time.sleep(3)
+        racausuario = int(input('A sua raça. As opções são 1. tielfing 2. Orc 3. Elfo 4. Halfling 5. Draconato 6. Anão, favor digitar o numero correspondente a sua escolha '))
+        while racausuario not in (1,2,3,4,5,6):
+            racausuario = int(input('Por favor digite um número entre 1 e 6 para escolher sua raça'))
+        time.sleep(3)
+        classeusuario = input('E por ultimo qual a sua classe. As opções são 1. Monge, 2. Mago, 3. Ladino, 4. Paladino, 5. Guerreiro, 6. Druida ')
+        while classeusuario not in (1,2,3,4,5,6):
+            classeusuario = int(input('Por favor digite um número entre 1 e 6 para escolher sua classe '))
+
+print(personagem.criacaodepersonagem())
