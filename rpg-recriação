@@ -1,17 +1,52 @@
 import random
 import time
+dificuldade = 0
 class personagem:
     def criacaodepersonagem():
         print('Olá eu sou ANA, sua assistente de vida antes de relembrar os acontecimentos seria bom que você me ajudasse com algumas outras coisas')
-        time.sleep(3)
+       # time.sleep(3)
         nomeusuario = input('O seu nome ')
-        time.sleep(3)
+        #time.sleep(3)
         racausuario = int(input('A sua raça. As opções são 1. tielfing 2. Orc 3. Elfo 4. Halfling 5. Draconato 6. Anão, favor digitar o numero correspondente a sua escolha '))
         while racausuario not in (1,2,3,4,5,6):
             racausuario = int(input('Por favor digite um número entre 1 e 6 para escolher sua raça'))
-        time.sleep(3)
-        classeusuario = input('E por ultimo qual a sua classe. As opções são 1. Monge, 2. Mago, 3. Ladino, 4. Paladino, 5. Guerreiro, 6. Druida ')
+        # time.sleep(3)
+        classeusuario = int(input('E por ultimo qual a sua classe. As opções são 1. Monge, 2. Mago, 3. Ladino, 4. Paladino, 5. Guerreiro, 6. Druida '))
         while classeusuario not in (1,2,3,4,5,6):
             classeusuario = int(input('Por favor digite um número entre 1 e 6 para escolher sua classe '))
-
+        corretocriacaodepersonagem = input(f'Ok {nomeusuario} você é um(a) {racausuario} e {classeusuario}(Sim ou Não)')
+        if corretocriacaodepersonagem in ('sim','Sim','s','S'):
+            pontos(racausuario, classeusuario)
+            #agora tem que mostrar pro jogador que ele tem 30 pontos para distribuir como
+            #quiser que é força, destreza, constituição, inteligencia, sabedoria e carisma 
+            #depois disso vai ter x pontos para x pericias a qual ele distribuira 5 em cada no maximo
+def pontos(racausuario, classeusuario):
+    pontostotais = 30
+    print('Bom agora que está tudo certo eu acharia bom que você definisse os pontos em cada atributo')
+    forcausuario = int(input('Primeiro eu gostaria de te informar que você tem 30 pontos para gastar no total, agora quantos pontos você vai colocar em força? '))
+    while pontostotais < forcausuario or 0 > forcausuario:
+        forcausuario = int(input('por favor digite um número valido entre 0 e 30 '))
+    pontostotais = pontostotais - forcausuario
+    destrezausuario = int(input('Bom agora que você definiu sua força para entender quanto de dano você vai causar, quantos pontos você vai colocar em destreza'))
+    while pontostotais < destrezausuario or 0 > destrezausuario:
+        destrezausuario = int(input(f'por favor digite um número valido entre 0 e {pontostotais} '))
+    pontostotais = pontostotais - destrezausuario
+    constituicaousuario = int(input('Agora qeuvocê definiu a sua capacidade de fazer as coisas em destreza coloque os pontos de constituição para definir sua quantidade de vida'))
+    while pontostotais < constituicaousuario or 0 > constituicaousuario:
+        constituicaousuario = int(input(f'por favor digite um número valido entre 0 e {pontostotais} '))
+    pontostotais = pontostotais - constituicaousuario
+    inteligenciausuario = int(input('a...zon'))
+    while pontostotais < inteligenciausuario or 0 > inteligenciausuario:
+        inteligenciausuario = int(input(f'por favor digite um número valido entre 0 e {pontostotais} '))
+    pontostotais = pontostotais - inteligenciausuario
+    sabedoriausuario = int(input('a...zon'))
+    while pontostotais < sabedoriausuario or 0 > sabedoriausuario:
+        sabedoriausuario = int(input(f'por favor digite um número valido entre 0 e {pontostotais} '))
+    pontostotais = pontostotais - sabedoriausuario
+    carismausuario = int(input('a...zon'))
+    while pontostotais < carismausuario or 0 > carismausuario:
+        carismausuario = int(input(f'por favor digite um número valido entre 0 e {pontostotais} '))
+    pontostotais = pontostotais - carismausuario
+def dados():
+    print('')
 print(personagem.criacaodepersonagem())
